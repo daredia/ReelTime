@@ -72,7 +72,7 @@ class YouTubeVideo extends React.Component {
         onPlay={ this.emitPlayAndListenForPause }
         onPause={ this.emitPauseAndListenForPlay }
         onProgress = { this.onProgress }
-        progressFrequency = { 500 }
+        progressFrequency = { 1000 }
         onDuration = { duration => this.setState({ duration }) }
       />
     )
