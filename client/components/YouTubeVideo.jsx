@@ -14,6 +14,7 @@ class YouTubeVideo extends React.Component {
     this.emitPlayAndListenForPause = this.props.emitPlayAndListenForPause.bind(this);
     this.emitPauseAndListenForPlay = this.props.emitPauseAndListenForPlay.bind(this);
     this.onProgress = this.onProgress.bind(this);
+    this.handleEnd = this.props.handleEnd.bind(this);
   }
 
   componentDidMount() {
@@ -64,6 +65,7 @@ class YouTubeVideo extends React.Component {
         onProgress = { this.onProgress }
         progressFrequency = { 250 }
         onDuration = { duration => this.setState({ duration }) }
+        onEnded = { this.handleEnd }
       />
     )
   }

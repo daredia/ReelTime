@@ -21,6 +21,7 @@ class VideoWrapper extends Component {
     this.initVoice = this.initVoice.bind(this);
     this.emitPlayAndListenForPause = this.emitPlayAndListenForPause.bind(this);
     this.emitPauseAndListenForPlay = this.emitPauseAndListenForPlay.bind(this);
+    this.handleEnd = this.handleEnd.bind(this);
   }
 
   componentDidMount() {
@@ -206,6 +207,11 @@ class VideoWrapper extends Component {
     }
   }
 
+  handleEnd() {
+    console.log('YT playback ended, inside handleEnd in VideoWrapper');
+    this.setState( {youtubeLink: 'https://www.youtube.com/watch?v=rkWN6SnGaTo'} );
+  }
+
   render() {
     return (
       <div>
@@ -228,6 +234,7 @@ class VideoWrapper extends Component {
               playing={this.state.playing}
               volume={this.state.volume}
               url={ this.state.youtubeLink }
+              handleEnd={this.handleEnd}
             />
             <ChatSpace socket={this.props.socket} isSource={this.props.isSource} peerId={this.props.peerId} />
           </div>
