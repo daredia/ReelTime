@@ -16,13 +16,14 @@ class VideoWrapper extends Component {
       youtubeLink: props.youtubeLink,
       playing: false,
       volume: 0.8,
-      playlist: ['https://www.youtube.com/watch?v=rkWN6SnGaTo', 'https://www.youtube.com/watch?v=0_m42uE6jWo&feature=youtu.be']
+      playlist: []
     };
 
     this.initVoice = this.initVoice.bind(this);
     this.emitPlayAndListenForPause = this.emitPlayAndListenForPause.bind(this);
     this.emitPauseAndListenForPlay = this.emitPauseAndListenForPlay.bind(this);
     this.handleEnd = this.handleEnd.bind(this);
+    this.addToPlaylist = this.addToPlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -221,6 +222,10 @@ class VideoWrapper extends Component {
     });
   }
 
+  addToPlaylist(videoLink) {
+    this.setState({ playlist: this.state.playlist.concat(videoLink) });
+  }
+
   render() {
     return (
       <div>
@@ -245,7 +250,12 @@ class VideoWrapper extends Component {
               url={ this.state.youtubeLink }
               handleEnd={this.handleEnd}
             />
-            <ChatSpace socket={this.props.socket} isSource={this.props.isSource} peerId={this.props.peerId} />
+            <ChatSpace 
+              socket={this.props.socket} 
+              isSource={this.props.isSource} 
+              peerId={this.props.peerId}
+              addToPlaylist={this.addToPlaylist}
+            />
           </div>
         }
       </div>

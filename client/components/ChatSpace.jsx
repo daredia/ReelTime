@@ -37,6 +37,10 @@ class ChatSpace extends React.Component {
       this.setState({
         messages: this.state.messages.concat({ className: "other", text: msg }),
       });
+
+      if (this.isVideoLink(msg)) {
+        this.props.addToPlaylist(msg);
+      }
     });
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -70,12 +74,22 @@ class ChatSpace extends React.Component {
     event.preventDefault();
     event.stopPropagation();
 
-    this.props.socket.emit('chat message', this.state.message, this.state.roomId);
+    var message = this.state.message;
+
+    this.props.socket.emit('chat message', message, this.state.roomId);
 
     this.setState({
-      messages: this.state.messages.concat({ className: 'me', text: this.state.message }),
+      messages: this.state.messages.concat({ className: 'me', text: message }),
       message: '',
     });
+
+    if (this.isVideoLink(message)) {
+      this.props.addToPlaylist(message);
+    }
+  }
+
+  isVideoLink(message) {
+    return message.includes('youtube.com/watch');
   }
 
   render() {
