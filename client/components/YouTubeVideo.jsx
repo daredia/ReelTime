@@ -76,6 +76,7 @@ class YouTubeVideo extends React.Component {
         progressFrequency = { 1000 }
         onDuration = { duration => this.setState({ duration }) }
         onEnded = { this.handleEnd }
+        youtubeConfig={{ preload: true }}
       />
     )
   }

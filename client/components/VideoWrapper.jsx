@@ -215,7 +215,10 @@ class VideoWrapper extends Component {
 
   handleEnd() {
     console.log('YT playback ended, inside handleEnd in VideoWrapper');
-    this.setState({ youtubeLink: this.state.playlist.shift() });
+    this.setState({ 
+      youtubeLink: this.state.playlist.shift(),
+      playing: true
+    });
   }
 
   render() {
