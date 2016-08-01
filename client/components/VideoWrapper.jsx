@@ -15,7 +15,8 @@ class VideoWrapper extends Component {
     this.state = {
       youtubeLink: props.youtubeLink,
       playing: false,
-      volume: 0.8
+      volume: 0.8,
+      playlist: ['https://www.youtube.com/watch?v=rkWN6SnGaTo', 'https://www.youtube.com/watch?v=0_m42uE6jWo&feature=youtu.be']
     };
 
     this.initVoice = this.initVoice.bind(this);
@@ -177,7 +178,7 @@ class VideoWrapper extends Component {
       setInterval(function() {
         var listen = annyang.isListening();
         console.log('listen:', listen);
-      }, 1000);
+      }, 10000);
 
       annyang.addCallback('error', function(err) {
         console.log('annyang error:', err);
@@ -214,7 +215,7 @@ class VideoWrapper extends Component {
 
   handleEnd() {
     console.log('YT playback ended, inside handleEnd in VideoWrapper');
-    this.setState( {youtubeLink: 'https://www.youtube.com/watch?v=rkWN6SnGaTo'} );
+    this.setState({ youtubeLink: this.state.playlist.shift() });
   }
 
   render() {
