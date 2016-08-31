@@ -22,7 +22,7 @@ const Landing = (props) => (
             </TabList>
             <TabPanel>
               <p className="landing-drop-text">
-                Drop Your Video File Here
+                Click or Drop Your Video File Here
                 <input type="file" id="files" className="landing-circle drop-box" name="file" onChange={props.setFile} />
               </p>
             </TabPanel>
@@ -77,7 +77,7 @@ const Landing = (props) => (
         <div className="row">
           <div className="col-lg-12 text-center">
             <h2 className="section-heading">Our Amazing Team</h2>
-            <h3 className="section-subheading text-muted">Meet the ReelTime Greenfield Project Team</h3>
+            <h3 className="section-subheading text-muted">Meet the ReelTime Team</h3>
           </div>
         </div>
 
@@ -93,15 +93,11 @@ const Landing = (props) => (
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <span className="copyright">Created at Hack Reactor</span>
+            <span className="copyright">Created in San Francisco</span>
           </div>
           <div className="col-md-4">
             <ul className="list-inline social-buttons">
-              <li><a href="https://twitter.com/HackReactor?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i className="fa fa-twitter"></i></a>
-              </li>
-              <li><a href="https://www.facebook.com/hackreactor"><i className="fa fa-facebook"></i></a>
-              </li>
-              <li><a href="https://www.instagram.com/explore/locations/70325290/"><i className="fa fa-linkedin"></i></a>
+              <li><a href="https://github.com/daredia/ReelTime"><i className="fa fa-github"></i></a>
               </li>
             </ul>
           </div>
